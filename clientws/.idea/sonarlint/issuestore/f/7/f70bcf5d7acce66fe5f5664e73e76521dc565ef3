@@ -1,0 +1,17 @@
+
+`	java:S112A"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+s	java:S131]"YComplete cases by adding the missing enum constants or add a default case to this switch.(ÂìÀ‰þÿÿÿÿ
+>
+java:S6205p"Remove this redundant block.(¶„Ýéúÿÿÿÿ8»¼¤ðë1
+>
+java:S6205t"Remove this redundant block.(à¼£Žûÿÿÿÿ8»¼¤ðë1
+P
+java:S1172Ž"2Remove this unused method parameter "actionEvent".(Ÿüéô8¾¼¤ðë1
+U
+java:S1172“"2Remove this unused method parameter "actionEvent".(Ö÷ïãýÿÿÿÿ8¿¼¤ðë1
+U
+java:S1172˜"2Remove this unused method parameter "actionEvent".(°¨Õ–øÿÿÿÿ8À¼¤ðë1
+O
+java:S1128"4Remove this unused import 'fr.univ.orleans.pnt.App'.(ë“Êøüÿÿÿÿ
+N
+java:S1128"3Remove this unused import 'javafx.scene.text.Text'.(˜ÿ‡Üþÿÿÿÿ

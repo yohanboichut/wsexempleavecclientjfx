@@ -1,0 +1,12 @@
+package fr.univ.orleans.pnt.controleur.ordres;
+
+public enum TypeOrdre {
+    SHOW_APPLICATION,
+    LOAD_TOKEN,
+    LOAD_UTILISATEURS,
+    LOAD_UTILISATEUR,
+    ERROR_AUTHENTIFICATION,
+    ERROR_TOKEN_EXPIRATION,
+    ERROR_DROITS_INSUFFISANTS,
+    ERROR_UTILISATEUR_INEXISTANT
+}
