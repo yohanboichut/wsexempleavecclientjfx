@@ -1,0 +1,129 @@
+POST http://localhost:8080/api/register
+Content-Type: application/x-www-form-urlencoded
+Accept: */*
+
+email=yohan.boichut@gmail.com&nom=Boichut&prenom=Yohan&password=babar
+
+
+
+> {%
+    client.global.set("token", response.headers.valueOf("Authorization"));
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 201, "L'enregistrement aurait dû être possible");
+    });
+%}
+
+
+###
+
+
+
+GET http://localhost:8080/api/user
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "L'enregistrement aurait dû être possible");
+    });
+%}
+
+
+###
+
+
+GET http://localhost:8080/api/admin
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 403, "L'accès aurait dû être interdit");
+    });
+%}
+
+
+###
+
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "email": "yohan.boichut@gmail.com",
+  "password": "babar"
+}
+
+
+> {%
+    client.global.set("token", response.headers.valueOf("Authorization"));
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 201, "L'enregistrement aurait dû être possible");
+    });
+%}
+
+###
+
+
+
+GET http://localhost:8080/api/user
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "L'accès aurait dû être possible");
+    });
+%}
+
+
+###
+
+
+
+
+GET http://localhost:8080/api/admin
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 403, "L'accès aurait dû être interdit");
+    });
+%}
+
+###
+POST http://localhost:8080/api/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.org",
+  "password": "admin"
+}
+
+
+> {%
+    client.global.set("token", response.headers.valueOf("Authorization"));
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 201, "L'enregistrement aurait dû être possible");
+    });
+%}
+
+###
+
+
+
+GET http://localhost:8080/api/user
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "L'accès aurait dû être possible");
+    });
+%}
+
+###
+
+GET http://localhost:8080/api/admin
+Authorization: {{token}}
+
+> {%
+    client.test("Request executed successfully", function() {
+        client.assert(response.status === 200, "L'accès aurait dû être possible");
+    });
+%}
